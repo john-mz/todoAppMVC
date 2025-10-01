@@ -1,0 +1,34 @@
+<!-- si no necesito texto entre los component tags puedo poner solo 1 tag que se cierre-->
+<!-- <app-header></app-header> -->
+<app-header /> 
+
+<main>
+    <ul id="users">
+        @for (user of users; track user.id) {
+            <li>
+                <app-user [user]="user" [selected]="selectedUserId == user.id" (select)="onSelectUser($event)"/>
+            </li>
+        } 
+        <!-- <li>                                                                                                     
+            <app-user [user]="users[0]" (select)="onSelectUser($event)"/>
+        </li>
+        <li>
+            <app-user [user]="users[1]" (select)="onSelectUser($event)"/>
+        </li>
+        <li>
+            <app-user [user]="users[2]" (select)="onSelectUser($event)"/>
+        </li>
+        <li>
+            <app-user [user]="users[3]" (select)="onSelectUser($event)"/>
+        </li> -->
+    </ul>
+
+                            <!-- el "?" hace q si el obj no existe no muestre nada -->
+    <!-- <app-tasks [name]="selectedUser?.name"/>  -->
+
+    @if (selectedUser) {
+        <app-tasks [name]="selectedUser.name" [userId]="selectedUser.id"></app-tasks>
+    } @else {
+        <h3>Toca un nombre para ver sus tareas</h3>
+    }
+</main>
