@@ -4,6 +4,7 @@ import { TaskInterface } from './task.model';
 import { Card } from '../../shared/card/card';
 import { DatePipe } from '@angular/common';
 import { TasksService } from '../../../modelo/tasks.service';
+import { Controlador } from '../../../controlador/controlador';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { TasksService } from '../../../modelo/tasks.service';
 })
 export class Task {
   @Input({required: true}) task!: TaskInterface; 
-  private TasksService = inject(TasksService);
+  private TasksService = inject(Controlador);
 
   onCompleteTask(){
     this.TasksService.removeTask(this.task.id);

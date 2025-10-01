@@ -3,6 +3,7 @@ import { Task } from './task/task';
 import { NewTask } from './new-task/new-task';
 import { TasksService } from '../../modelo/tasks.service';
 import { NewTaskData } from './task/task.model';
+import { Controlador } from '../../controlador/controlador';
 
 @Component({
   selector: 'app-tasks',
@@ -16,7 +17,7 @@ export class Tasks {
   isAddingTask = false;
 
   // con crear el constructor ya angular sabe q es un servicio y q le toca instanciarlo, angular lo hace debajo de cuerda
-  constructor(private TasksService: TasksService){}
+  constructor(private TasksService: Controlador){}
 
   get selectedUserTasks() {
     return this.TasksService.getUserTasks(this.userId);

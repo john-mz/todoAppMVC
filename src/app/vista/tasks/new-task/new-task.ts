@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, Input, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewTaskData } from '../task/task.model';
 import { TasksService } from '../../../modelo/tasks.service';
+import { Controlador } from '../../../controlador/controlador';
 
 @Component({
   selector: 'app-new-task',
@@ -16,7 +17,7 @@ export class NewTask {
   enteredSummary = "";
   enteredDate = "";
 
-  private TasksService = inject(TasksService);
+  private TasksService = inject(Controlador);
   // using signal
   // enteredTitle = signal("");
   // enteredSummary = signal("");
